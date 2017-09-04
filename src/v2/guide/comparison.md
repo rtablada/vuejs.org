@@ -190,15 +190,21 @@ Angular's learning curve is much steeper. The API surface of the framework is si
 
 ## Ember
 
-Ember is a full-featured framework that is designed to be highly opinionated. It provides a lot of established conventions and once you are familiar enough with them, it can make you very productive. However, it also means the learning curve is high and flexibility suffers. It's a trade-off when you try to pick between an opinionated framework and a library with a loosely coupled set of tools that work together. The latter gives you more freedom but also requires you to make more architectural decisions.
+Ember is a full-featured framework that is designed to be highly opinionated. It provides a lot of established conventions and once you are familiar enough with them, it can make you very productive. However, it also means that there are more pieces to learn and manage compared to Vue's simple API. It's a trade-off when you try to pick between an opinionated framework and a library with a loosely coupled set of tools that work together. The latter gives you more freedom but also requires you to make more architectural decisions.
 
-That said, it would probably make a better comparison between Vue core and Ember's [templating](https://guides.emberjs.com/v2.10.0/templates/handlebars-basics/) and [object model](https://guides.emberjs.com/v2.10.0/object-model/) layers:
+### Ecosystem
 
-- Vue provides unobtrusive reactivity on plain JavaScript objects and fully automatic computed properties. In Ember, you need to wrap everything in Ember Objects and manually declare dependencies for computed properties.
+As a full-featured and opinionated framework, Ember has a large ecosystem and out of the box comes with a lot of pieces that are used to "create ambitious web applications". Since Ember comes with a lot of opinions out of the box, it is closer to having Vue, Vue-Router, Vue-CLI, and Vuex on every project. While there are pieces like Ember Data that can be removed, many of the included libraries and opinions that cannot be removed. While Ember has many customization options, often doing something that doesn't align with Ember standards means using less documented methods. This consolidation of opinions does mean that the Ember ecosystem is very robust and there are lots of addons that work across almost all Ember apps via Ember CLI.
 
-- Vue's template syntax harnesses the full power of JavaScript expressions, while Handlebars' expression and helper syntax is intentionally quite limited in comparison.
+### Components
 
-- Performance-wise, Vue outperforms Ember [by a fair margin](https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts/table.html), even after the latest Glimmer engine update in Ember 2.x. Vue automatically batches updates, while in Ember you need to manually manage run loops in performance-critical situations.
+Even though Ember is a large framework the Component API provided by Ember.Component is very similar to Vue components and the [object model](https://guides.emberjs.com/current/object-model/) provides similar features to Vue like computed properties and observers. Ember also provides a [templating](https://guides.emberjs.com/current/templates/handlebars-basics/) that shares similarities to Vue. Similar to Vue, Ember components have a set of [lifecycle hooks](https://guides.emberjs.com/current/components/the-component-lifecycle/) to listen for initialization steps, rendering, attribute updates, and more. The Ember object model provides [observers](https://guides.emberjs.com/v2.14.0/object-model/observers/) and [computed properties](https://guides.emberjs.com/v2.14.0/object-model/computed-properties/) similar to Vue's [computed properties and watchers](computed.html), but because of the history and age of the Ember Object model, most changes to Ember Objects require calls to a "set" method in order to trigger watchers and rerenders. Some of the other differences include:
+
+- Vue provides unobtrusive reactivity on plain JavaScript objects and fully automatic computed properties. In Ember, most objects are wrapped in Ember Objects to setup computed property and update listeners.
+
+- Vue's template syntax harnesses the full power of JavaScript expressions, while Ember moves Javascript template expressions into Handlebars helpers and uses the Handlebars syntax which is more limited out of the box
+
+- Performance-wise, Vue outperforms Ember [by a fair margin](https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts/table.html), even after the latest Glimmer engine update in Ember 2.x. Both Ember and Vue automatically batch updates and rerenders, but in Ember you may need to manually manage run loops in performance-critical situations.
 
 ## Knockout
 
